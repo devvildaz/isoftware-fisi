@@ -1,8 +1,11 @@
 #:import DirectorySearch components.DirectorySearch
-#:import Label kivy.uix.label.Label
+#:import ImageButton components.ImageButton
+
 
 FloatLayout:
+  id: floatid
   BoxLayout:
+    id: boxid
     orientation: 'vertical'
     canvas:
       Color:
@@ -12,22 +15,26 @@ FloatLayout:
         size: self.size
     DirectorySearch:
     StackLayout:
-      on_parent:
-        for i in range(10): txt = Label(text=str(i), size_hint=(0.1,None)); self.add_widget(txt)      
       id: stackimages
+      spacing: (10,10)
+      padding: (10,10)
       canvas:
         Color:
-          rgba: .6,.5,.5,1
+          rgba: .6,.5,.5, 0
         Rectangle:
           pos: self.pos
           size: self.size
+
+<ResultPopup>: 
+  id: resultspopup
+  size_hint: (.5,.5)
+  title: 'Resultados con AWS Rekognition'
   BoxLayout:
-    size_hint: (None, .5)
-    width: 300
-    canvas:
-      Color:
-        rgba: .2,.2,.2,1
-      Rectangle:
-        pos: self.pos
-        size: self.size
-    pos_hint: {'x': 0, 'y': .25}
+    orientation: 'vertical'
+    BoxLayout:
+      size_hint: (1,None)
+      height: 50
+      Button:
+        text: 'Cerrar'
+        on_release: resultspopup.dismiss()
+  

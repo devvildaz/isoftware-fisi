@@ -1,0 +1,16 @@
+<ImageButton>:
+    id: rootbtn
+    size_hint: (1,None)
+    height: imagefile.height
+    canvas:
+        Color:
+            rgba: 0,0,0,0
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Image:
+        id: imagefile
+        texture: self.texture
+        source : root.filepath
+        center_x: self.parent.center_x
+        center_y: self.parent.center_y
