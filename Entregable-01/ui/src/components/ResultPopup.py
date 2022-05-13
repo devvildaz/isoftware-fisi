@@ -17,7 +17,15 @@ class ResultPopup(Popup):
     box = self.ids.resultbox
     for item in response:
       imagebuf = item['image']
-      box.add_widget(Image(size=imagebuf.size,texture=imagebuf.texture, size_hint=(1,None)))
-      for labelitm in item['labels']:
-        box.add_widget(Label(text=str(labelitm), size_hint=(1,None), height=40))
+      imagecomp = Image(
+        size_hint_y=None,
+        height=160,
+        texture=imagebuf.texture, 
+        keep_ratio=True
+      )
+      box.add_widget(imagecomp)
+      labelbox = BoxLayout(orientation='vertical', size_hint_y=0)
+      for labelitm in item['labels']:  
+        labelbox.add_widget(Label(text=str(labelitm), size_hint=(1,None), height=20))
+      box.add_widget(labelbox)
   pass

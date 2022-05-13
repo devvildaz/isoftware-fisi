@@ -1,6 +1,6 @@
 <ResultPopup>
   id: resultspopup
-  size_hint: (.8,.8)
+  size_hint: (.95,.95)
   title: 'Resultados con AWS Rekognition'
   on_open: root.load_file()
   BoxLayout:
@@ -14,8 +14,9 @@
       GridLayout:
         size_hint: (1, None)
         id: resultbox
-        cols: 1
+        cols: 2
         height: self.minimum_height
+        row_default_height: 200
     Button:
       size_hint: (1, None)
       height: 30
