@@ -61,7 +61,7 @@ def ProcessFoo(photodir):
           (left, top)
 
       )
-      draw.line(points, fill='#00d400', width=2)
+      draw.line(points, fill='#00d400', width=5)
       file_extension = os.path.splitext(photo)[1][1:]
       if file_extension.upper() == 'JPG': 
           file_extension = 'jpeg'
