@@ -6,9 +6,15 @@ from components.ImageButton import ImageButton
 from kivy.properties import ObjectProperty
 from kivy.properties import StringProperty 
 from core.Recognition import ProcessFoo 
-from kivy.factory import Factory 
+from kivy.factory import Factory
+
+from kivy.uix.boxlayout import BoxLayout
+
 import json
 import os
+
+class BoxLayoutExample(BoxLayout):
+  pass
 
 class ResultPopup(Popup):
   photodir = StringProperty("")

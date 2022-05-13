@@ -3,7 +3,23 @@
 
 
 FloatLayout:
+
   id: floatid
+  BoxLayoutExample:
+    id: boxlayoutexample
+    orientation: "horizontal"
+    size_hint: 1, 1
+    Button:
+      text:"A"
+      size_hint: .5, None
+      #size: "100dp","60dp"
+      #width: "100dp"
+      height: "60dp"
+
+      # x, center_x, right
+      # y, center_y, top
+      pos_hint: {"center_x":.5}
+
   BoxLayout:
     id: boxid
     orientation: 'vertical'
@@ -43,4 +59,18 @@ FloatLayout:
       text: 'Cerrar'
       on_release: 
         resultspopup.dismiss()
-  
+
+
+<BoxLayoutExample2>:
+  id: boxlayoutexample
+  orientation: "horizontal"
+  Button:
+    text:"A"
+    size_hint: .5, None
+    #size: "100dp","60dp"
+    #width: "100dp"
+    height: "60dp"
+
+    # x, center_x, right
+    # y, center_y, top
+    pos_hint: {"center_x":.5}
