@@ -33,9 +33,9 @@
         height: 50
         Button:
           text: 'Aceptar'
-          on_release: 
+          on_release:
             dirpathinput.text = filechooserid.selection and filechooserid.selection[0] or dirpathinput.text
-            root.on_dir_change_event(dirpathinput.text)
+            if dirpathinput.text != '' : root.on_dir_change_event(dirpathinput.text)
             filepopup.dismiss()
         Button:
           text: 'Rechazar'
