@@ -1,0 +1,23 @@
+<ResultPopup>
+  id: resultspopup
+  size_hint: (.8,.8)
+  title: 'Resultados con AWS Rekognition'
+  on_open: root.load_file()
+  BoxLayout:
+    id: boxparent
+    orientation : 'vertical'
+    size: resultspopup.size
+    ScrollView:
+      size_hint: (1, None)
+      height: boxparent.size[1] - 30
+      orientation: 'vertical'
+      GridLayout:
+        size_hint: (1, None)
+        id: resultbox
+        cols: 1
+        height: self.minimum_height
+    Button:
+      size_hint: (1, None)
+      height: 30
+      text: 'Salir'
+      on_release: resultspopup.dismiss()

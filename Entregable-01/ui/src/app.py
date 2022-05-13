@@ -1,27 +1,15 @@
+import json
+import os
 from kivy.app import App
 from kivy.uix.label import Label
 from kivy.uix.popup import Popup
 from kivy.uix.button import Button 
-from components.ImageButton import ImageButton
 from kivy.properties import ObjectProperty
 from kivy.properties import StringProperty 
 from core.Recognition import ProcessFoo 
-from kivy.factory import Factory 
-import json
-import os
-
-class ResultPopup(Popup):
-  photodir = StringProperty("")
-
-  def load_file(self):
-    response = ProcessFoo(self.photodir)
-    box = self.ids.resultbox
-    
-    for item in response:
-      box.add_widget(Button(size_hint_y=None,text=str(type(item['image']))))
-      for label in item['labels']:
-        box.add_widget(Button(text=str(type(label)), size_hint_y=None))
-  pass
+from kivy.uix.image import Image
+from kivy.core.image import Image as CoreImage
+from components.ImageButton import ImageButton
 
 class GuiApp(App):
   resultview = ObjectProperty()
@@ -41,11 +29,10 @@ class GuiApp(App):
     for i, v in enumerate(files):
       imgbtn = ImageButton(
         size_hint=(None,None), 
-        size=(125,125),
+        size=(160, 90),
         filepath=v
       )
       imgbtn.id = i
-      imgbtn.bind(on_release=lambda x : Factory.ResultPopup(photodir=v).open()) 
       stacklayout.add_widget(imgbtn)
   pass
   
