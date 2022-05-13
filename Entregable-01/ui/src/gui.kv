@@ -40,25 +40,6 @@ FloatLayout:
           pos: self.pos
           size: self.size
 
-<ResultPopup>: 
-  id: resultspopup
-  size_hint: (.5,.5)
-  title: 'Resultados con AWS Rekognition'
-  on_open: self.load_file()
-  BoxLayout:
-    orientation: 'vertical'
-    ScrollView:
-      effect_cls: "ScrollEffect"
-      BoxLayout:
-        orientation: 'vertical'
-        id: resultbox
-    Button:
-      size_hint: (1,None)
-      height: 50
-      text: 'Cerrar'
-      on_release: 
-        resultspopup.dismiss()
-
 
 <BoxLayoutExample2>:
   id: boxlayoutexample

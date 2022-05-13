@@ -18,19 +18,6 @@ import os
 class BoxLayoutExample(BoxLayout):
   pass
 
-class ResultPopup(Popup):
-  photodir = StringProperty("")
-
-  def load_file(self):
-    response = ProcessFoo(self.photodir)
-    box = self.ids.resultbox
-    
-    for item in response:
-      box.add_widget(Button(size_hint_y=None,text=str(type(item['image']))))
-      for label in item['labels']:
-        box.add_widget(Button(text=str(type(label)), size_hint_y=None))
-  pass
-
 from kivy.uix.image import Image
 from kivy.core.image import Image as CoreImage
 from components.ImageButton import ImageButton
