@@ -3,30 +3,35 @@ from botocore import UNSIGNED
 from botocore.client import Config
 import os
 import io
+import json
 from PIL import Image, ImageDraw, ExifTags, ImageColor
 from kivy.core.image import Image as CoreImage
 
+filejson = open(os.path.join(os.path.dirname(__file__),'../credentials.json'))
+credentials = json.load(filejson)
+print(credentials)
+filejson.close()
 
 def ProcessFoo(photodir):
   photo = os.path.basename(photodir)
   bucket = 'mybucket677'
   s3 = boto3.client('s3',
-    aws_access_key_id = "AKIA3FHVZEYFTTL5QK4E",
-    aws_secret_access_key = "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",
-    region_name = "us-east-2",
+    aws_access_key_id = credentials['aws_access_key_id'],
+    aws_secret_access_key = credentials['aws_secret_access_key'],
+    region_name = credentials['region_name'],
   )
   s3.upload_file(photodir, bucket,photo )
 
   client=boto3.client('rekognition',
-    aws_access_key_id = "AKIA3FHVZEYFTTL5QK4E",
-    aws_secret_access_key = "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",
-    region_name = "us-east-2",
+    aws_access_key_id = credentials['aws_access_key_id'],
+    aws_secret_access_key = credentials['aws_secret_access_key'],
+    region_name = credentials['region_name'],
   )
 
   s3_connection = boto3.resource('s3',
-    aws_access_key_id = "AKIA3FHVZEYFTTL5QK4E",
-    aws_secret_access_key = "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",
-    region_name = "us-east-2",
+    aws_access_key_id = credentials['aws_access_key_id'],
+    aws_secret_access_key = credentials['aws_secret_access_key'],
+    region_name = credentials['region_name'],
   )
   s3_object = s3_connection.Object(bucket,photo)
   s3_response = s3_object.get()
