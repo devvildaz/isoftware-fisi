@@ -1,11 +1,13 @@
+import json
+import os
 from kivy.app import App
 from kivy.uix.label import Label
 from kivy.uix.popup import Popup
 from kivy.uix.button import Button 
-from components.ImageButton import ImageButton
 from kivy.properties import ObjectProperty
 from kivy.properties import StringProperty 
 from core.Recognition import ProcessFoo 
+
 from kivy.factory import Factory
 
 from kivy.uix.boxlayout import BoxLayout
@@ -29,6 +31,10 @@ class ResultPopup(Popup):
         box.add_widget(Button(text=str(type(label)), size_hint_y=None))
   pass
 
+from kivy.uix.image import Image
+from kivy.core.image import Image as CoreImage
+from components.ImageButton import ImageButton
+
 class GuiApp(App):
   resultview = ObjectProperty()
   def __init__(self, **kwargs):
@@ -47,11 +53,10 @@ class GuiApp(App):
     for i, v in enumerate(files):
       imgbtn = ImageButton(
         size_hint=(None,None), 
-        size=(125,125),
+        size=(160, 90),
         filepath=v
       )
       imgbtn.id = i
-      imgbtn.bind(on_release=lambda x : Factory.ResultPopup(photodir=v).open()) 
       stacklayout.add_widget(imgbtn)
   pass
   

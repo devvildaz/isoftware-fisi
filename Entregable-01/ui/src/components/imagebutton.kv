@@ -8,9 +8,11 @@
         Rectangle:
             pos: self.pos
             size: self.size
+    on_release: root.open_popup()
     Image:
         id: imagefile
         texture: self.texture
         source : root.filepath
         center_x: self.parent.center_x
         center_y: self.parent.center_y
+    
