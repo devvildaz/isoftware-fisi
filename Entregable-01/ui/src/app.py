@@ -15,8 +15,8 @@ from kivy.uix.boxlayout import BoxLayout
 import json
 import os
 
-class BoxLayoutExample(BoxLayout):
-  pass
+#class BoxLayoutExample(BoxLayout):
+#  pass
 
 class ResultPopup(Popup):
   photodir = StringProperty("")
