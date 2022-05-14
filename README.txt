@@ -19,7 +19,7 @@ Importante: Estar ubicado(a) en la carpeta isoftware-fisi\
 	*Nota: Ya existen imágenes de prueba
 
 3. Ejecutar el programa principal
-	3.1 Ejecuar el siguiente comando:
+	3.1 Ejecutar el siguiente comando:
 		python Entregable-01\ui\src\app.py
 
 4. Modo de uso
